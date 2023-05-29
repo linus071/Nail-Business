@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(252, 199, 199);
+  background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,17 +8,11 @@ body {
   margin: 0; /* Removes default body margin */
 }
 
-h1 {
-  font-size: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 0px;
-}
-
 .AD {
   width: 450px;
   height: auto;
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -26,15 +20,11 @@ h1 {
 
 /* Media Query for iPhones (Portrait mode) */
 @media only screen and (max-width: 480px) and (orientation: portrait) {
-  h1 {
-    font-size: 30px;
-
-  }
-
 
 
   .AD {
-    width: 300px;
+    width: 350px;
+    height: auto;
   }
 
 }
