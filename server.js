@@ -6,23 +6,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/Intro.html');
-});
-
-app.get('/Images/WCQRcode.JPG', (req, res) => {
-  res.sendFile(__dirname + '/Images/WCQRcode.JPG');
-});
-
-app.get('/Intro.css', (req, res) => {
-  res.sendFile(__dirname + '/Intro.css');
-});
-
-app.get('/Log.html', (req, res) => {
-  res.sendFile(__dirname + '/Log.html');
-});
-
-app.get('/Book.html', (req, res) => {
-  res.sendFile(__dirname + '/Book.html');
+  res.sendFile(__dirname + '/public/Intro.html');
 });
 
 app.post('/login', (req, res) => {
