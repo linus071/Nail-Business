@@ -9,9 +9,7 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/Intro.html');
 });
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/Images');
-});
+
 
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
