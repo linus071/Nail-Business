@@ -2,7 +2,7 @@
   "name": "loginfo",
   "version": "1.0.0",
   "description": "user account information include passwords and contacts",
-  "main": "index.js",
+  "main": "Log.js",
   "scripts": {
     "test": "anya test"
   },
