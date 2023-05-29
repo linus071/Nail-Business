@@ -8,55 +8,74 @@ body {
   margin: 0; /* Removes default body margin */
 }
 
-h1{
-    font-size: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 200px;
+h1 {
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
 }
 
-.flex-links{
-    font-size: 30px;
-    color: black;
-    display: flex;
-    margin-top: 70px;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
+.flex-links {
+  font-size: 30px;
+  color: black;
+  display: flex;
+  margin-top: 70px;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
 }
 
-.flex-links a{
-    color: black;
+.flex-links a {
+  color: black;
 }
 
-.flex-links a:hover{
-    color: blue;
+.flex-links a:hover {
+  color: blue;
 }
 
-.QR{
-    width: 150px;
-    height: auto;
+.QR {
+  width: 150px;
+  height: auto;
 }
 
-h2{
-    font-size: 35px;
-    display: flex;
-    margin-top: 70px;
-    justify-content: center;
-    align-items: center;
-
+h2 {
+  font-size: 35px;
+  display: flex;
+  margin-top: 70px;
+  justify-content: center;
+  align-items: center;
 }
 
 .contacts {
-    font-size: 30px;
-    text-align: center;
-    line-height: 1.5;
+  font-size: 30px;
+  text-align: center;
+  line-height: 1.5;
 }
 
-/*
-@media (max-width: 480px){
-    h1{
-    font-size: 30px; TO BE CONSIDERED FOR ADJUSTING PHONE SIZE
-    }
-}*/
+/* Media Query for iPhones (Portrait mode) */
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+  h1 {
+    font-size: 30px;
+    margin-top: 100px;
+  }
+
+  .flex-links {
+    font-size: 25px;
+    margin-top: 50px;
+    gap: 20px;
+  }
+
+  .QR {
+    width: 120px;
+  }
+
+  h2 {
+    font-size: 30px;
+    margin-top: 50px;
+  }
+
+  .contacts {
+    font-size: 25px;
+  }
+}
