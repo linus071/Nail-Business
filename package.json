@@ -2,9 +2,9 @@
   "name": "loginfo",
   "version": "1.0.0",
   "description": "user account information include passwords and contacts",
-  "main": "Intro.html",
+  "main": "server.js",
   "scripts": {
-    "test": "anya test"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
