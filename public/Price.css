@@ -1,0 +1,30 @@
+body {
+  background-color:  rgb(191,171,194,255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Ensures the body covers the full height of the viewport */
+  margin: 0; /* Removes default body margin */
+}
+
+
+.PC {
+  width: 400px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+
+/* Resize for phone screens */
+
+/* Media Query for iPhones (Portrait mode) */
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+
+  .PC {
+    width: 350px;
+    height: auto;
+  }
+
+}
