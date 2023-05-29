@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/Intro.html');
 });
 
-app.get('/', (req, res) => {
+app.get('/Intro.css', (req, res) => {
   res.sendFile(__dirname + '/Intro.css');
 });
 
