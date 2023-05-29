@@ -9,6 +9,10 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/Intro.html');
 });
 
+app.get('/Images/WCQRcode.JPG', (req, res) => {
+  res.sendFile(__dirname + '/Images/WCQRcode.JPG');
+});
+
 app.get('/Intro.css', (req, res) => {
   res.sendFile(__dirname + '/Intro.css');
 });
