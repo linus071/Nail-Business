@@ -9,6 +9,10 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/Intro.html');
 });
 
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/Intro.css');
+});
+
 app.get('/Log.html', (req, res) => {
   res.sendFile(__dirname + '/Log.html');
 });
