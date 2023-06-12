@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/linus071/Nail-Business#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.3.4"
   }
 }
