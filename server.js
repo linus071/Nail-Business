@@ -34,6 +34,7 @@ const connection = mysql.createConnection({
     user: '9mfk6i0iaauvc1xc5ain',
     password: 'pscale_pw_2A2sYlGzwg8A4yPb52wg9ThiJPLvNO84yNDH4gDxsz1',
     database: 'ubc_nails_info',
+    ssl: true
 })
 
 // Connecting to MySQL
