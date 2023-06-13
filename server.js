@@ -9,7 +9,6 @@ app.use(express.static('public'));
 //Generating ID
 let idCounter = 0;
 
-
 //Where it first access
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/Intro.html');
