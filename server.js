@@ -40,7 +40,7 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
   if (err) {
     console.error('Error connecting to MySQL:', err);
-    process.exit(1);
+//    process.exit(1);
   } else {
     console.log('Connected to MySQL database');
     fetchLastAssignedId();
