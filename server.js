@@ -9,11 +9,17 @@ app.use(express.static('public'));
 //Generating ID
 let idCounter = 0;
 
-function generateUniqueId(){
-
-    idCounter++;
-    return idCounter;
-
+// Retrieve the last assigned ID from the database and set idCounter accordingly
+function fetchLastAssignedId() {
+  const query = "SELECT MAX(id) AS lastId FROM user_info";
+  connection.query(query, (error, results) => {
+    if (error) {
+      console.error('Error fetching last assigned ID:', error);
+    } else {
+      idCounter = results[0].lastId || 0;
+      console.log('Last assigned ID:', idCounter);
+    }
+  });
 }
 
 //Where it first access
@@ -34,10 +40,19 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
   if (err) {
     console.error('Error connecting to MySQL:', err);
+    process.exit(1);
   } else {
     console.log('Connected to MySQL database');
+    fetchLastAssignedId();
   }
 });
+
+function generateUniqueId(){
+
+    idCounter++;
+    return idCounter;
+
+}
 
 // Pass the MySQL connection to request handlers
 app.use((req, res, next) => {
