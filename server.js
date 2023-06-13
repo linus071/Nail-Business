@@ -43,15 +43,22 @@ app.use((req, res, next) => {
 });
 
 app.post('/signup', async (req, res) => {
-  const id = generateUniqueId();
+  const id = generateUniqueId(); // Assuming you have a function to generate unique IDs
   const username = req.body.username;
   const email = req.body.email;
   const wechat = req.body.wechat;
   const password = req.body.password;
 
+  const users = db.collection('users'); // Use your desired collection name here
+
+  // create an item in the collection with the key as the generated ID
   try {
-    // Insert the signup data into CyclicDB
-    const result = await db.set(id, { username, email, wechat, password }, 'user_info');
+    await users.set(id.toString(), {
+      username,
+      email,
+      wechat,
+      password
+    });
 
     console.log('Signup data stored successfully');
     res.send('Signup successful!');
