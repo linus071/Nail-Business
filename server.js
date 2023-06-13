@@ -10,17 +10,17 @@ app.use(express.static('public'));
 let idCounter = 0;
 
 // Retrieve the last assigned ID from the database and set idCounter accordingly
-function fetchLastAssignedId() {
-  const query = "SELECT MAX(id) AS lastId FROM user_info";
-  connection.query(query, (error, results) => {
-    if (error) {
-      console.error('Error fetching last assigned ID:', error);
-    } else {
-      idCounter = results[0].lastId || 0;
-      console.log('Last assigned ID:', idCounter);
-    }
-  });
-}
+//function fetchLastAssignedId() {
+//  const query = "SELECT MAX(id) AS lastId FROM user_info";
+//  connection.query(query, (error, results) => {
+//    if (error) {
+//      console.error('Error fetching last assigned ID:', error);
+//    } else {
+//      idCounter = results[0].lastId || 0;
+//      console.log('Last assigned ID:', idCounter);
+//    }
+//  });
+//}
 
 //Where it first access
 app.get('/', (req, res) => {
