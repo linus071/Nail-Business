@@ -51,7 +51,10 @@ app.post('/signup', async (req, res) => {
 
   try {
     // Insert the signup data into CyclicDB
-    await db.insert('user_info', { id, username, email, wechat, password });
+    await db.put({
+      TableName: 'user_info',
+      Item: { id, username, email, wechat, password },
+    });
 
     console.log('Signup data stored successfully');
     res.send('Signup successful!');
