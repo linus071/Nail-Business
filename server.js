@@ -35,7 +35,6 @@ const connection = mysql.createConnection({
   password: 'pscale_pw_I3bpnuXOep10RHRNRXZEG9FnLmKVE2qbD0HKQe41ohG',
   database: 'ubc_nails_info',
   ssl: {
-    ca: fs.readFileSync('/etc/ssl/certs/ca-certificates.crt'),
     rejectUnauthorized: true,
   },
 });
