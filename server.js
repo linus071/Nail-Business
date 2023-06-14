@@ -37,9 +37,9 @@ const connection = mysql.createConnection({
     ssl: {
     // Specify SSL options here
     // For example, if you have the SSL certificate and key files, you can provide their paths
-    ca: fs.readFileSync('ca.pem'),
-    cert: fs.readFileSync('server-cert.pem'),
-    key: fs.readFileSync('server-key.pem')
+    ca: require('fs').readFileSync('ca.pem'),
+    cert: require('fs').readFileSync('server-cert.pem'),
+    key: require('fs').readFileSync('server-key.pem')
   }
 })
 
