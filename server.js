@@ -31,8 +31,8 @@ app.get('/', (req, res) => {
 // Setting up MySQL connection
 const connection = mysql.createConnection({
   host: 'aws.connect.psdb.cloud',
-  user: '5g4wore1emwxe91fmx9b',
-  password: 'pscale_pw_I3bpnuXOep10RHRNRXZEG9FnLmKVE2qbD0HKQe41ohG',
+  user: '2ox30s464jyq4ef3behq',
+  password: 'pscale_pw_fo9FsA3LANixBLGzNMP9l2NAfoW2UGviC27kQPptgBM',
   database: 'ubc_nails_info',
   ssl: {
     rejectUnauthorized: true,
