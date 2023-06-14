@@ -2,11 +2,12 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const mysql = require('mysql2');
+const fs = require('fs');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
-//Generating ID
+// Generating ID
 let idCounter = 0;
 
 // Retrieve the last assigned ID from the database and set idCounter accordingly
@@ -22,43 +23,37 @@ function fetchLastAssignedId() {
   });
 }
 
-//Where it first access
+// Where it first accesses
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/Intro.html');
 });
 
-
-//Setting up MySQL connection
+// Setting up MySQL connection
 const connection = mysql.createConnection({
-    host: 'aws.connect.psdb.cloud',
-    user: '5g4wore1emwxe91fmx9b',
-    password: 'pscale_pw_I3bpnuXOep10RHRNRXZEG9FnLmKVE2qbD0HKQe41ohG',
-    database: 'ubc_nails_info',
-//    ssl: {
-//    // Specify SSL options here
-//    // For example, if you have the SSL certificate and key files, you can provide their paths
-//    ca: require('fs').readFileSync('ca.pem'),
-//    cert: require('fs').readFileSync('server-cert.pem'),
-//    key: require('fs').readFileSync('server-key.pem')
-//  }
-})
+  host: 'aws.connect.psdb.cloud',
+  user: '5g4wore1emwxe91fmx9b',
+  password: 'pscale_pw_I3bpnuXOep10RHRNRXZEG9FnLmKVE2qbD0HKQe41ohG',
+  database: 'ubc_nails_info',
+  ssl: {
+    ca: fs.readFileSync('/etc/ssl/certs/ca-certificates.crt'),
+    rejectUnauthorized: true,
+  },
+});
 
 // Connecting to MySQL
 connection.connect((err) => {
   if (err) {
     console.error('Error connecting to MySQL:', err);
-//    process.exit(1);
+    //    process.exit(1);
   } else {
     console.log('Connected to MySQL database');
     fetchLastAssignedId();
   }
 });
 
-function generateUniqueId(){
-
-    idCounter++;
-    return idCounter;
-
+function generateUniqueId() {
+  idCounter++;
+  return idCounter;
 }
 
 // Pass the MySQL connection to request handlers
@@ -66,7 +61,6 @@ app.use((req, res, next) => {
   req.db = connection;
   next();
 });
-
 
 app.post('/signup', (req, res) => {
   const id = generateUniqueId(); // Assuming you have a function to generate unique IDs
@@ -88,9 +82,7 @@ app.post('/signup', (req, res) => {
   });
 });
 
-
-
-//Showing which port
+// Showing which port
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });
