@@ -34,13 +34,13 @@ const connection = mysql.createConnection({
     user: '5g4wore1emwxe91fmx9b',
     password: 'pscale_pw_I3bpnuXOep10RHRNRXZEG9FnLmKVE2qbD0HKQe41ohG',
     database: 'ubc_nails_info',
-    ssl: {
-    // Specify SSL options here
-    // For example, if you have the SSL certificate and key files, you can provide their paths
-    ca: require('fs').readFileSync('ca.pem'),
-    cert: require('fs').readFileSync('server-cert.pem'),
-    key: require('fs').readFileSync('server-key.pem')
-  }
+//    ssl: {
+//    // Specify SSL options here
+//    // For example, if you have the SSL certificate and key files, you can provide their paths
+//    ca: require('fs').readFileSync('ca.pem'),
+//    cert: require('fs').readFileSync('server-cert.pem'),
+//    key: require('fs').readFileSync('server-key.pem')
+//  }
 })
 
 // Connecting to MySQL
