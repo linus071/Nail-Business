@@ -60,14 +60,15 @@ app.use((req, res, next) => {
   next();
 });
 
+// Insert the signup data into the database
 app.post('/signup', (req, res) => {
-  const id = generateUniqueId(); // Assuming you have a function to generate unique IDs
+  const id = generateUniqueId(); // Assuming     you have a function to generate unique IDs
   const username = req.body.username;
   const email = req.body.email;
   const wechat = req.body.wechat;
   const password = req.body.password;
 
-  // Insert the signup data into the database
+
   const query = `INSERT INTO user_info (id, username, email, wechat, password) VALUES (?, ?, ?, ?, ?)`;
   connection.query(query, [id, username, email, wechat, password], (error, results) => {
     if (error) {
@@ -79,6 +80,26 @@ app.post('/signup', (req, res) => {
     }
   });
 });
+
+ // Check the login data to match database
+   app.post('/login', (req,res) => {
+
+   const query = "SELECT * FROM user_info WHERE username = ? AND password = ?";
+   connection.query(query, [username, password], (error, results) => {
+
+    if(error){
+    console.error('Error performing login:', error);
+    res.status(500).send('Error performing login');
+    }else{
+    //If there exists results that means it match
+    if(results.length > 0){
+    res.send('Login successful!');
+    }else{
+    res.status(401).send('Invalid credentials');
+    }
+   }
+   });
+  });
 
 // Showing which port
 app.listen(port, () => {
