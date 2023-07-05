@@ -96,7 +96,8 @@ app.post('/signup', (req, res) => {
     }else{
     //If there exists results that means it match
     if(results.length > 0){
-    res.send('Login successful!');
+//    res.send('Login successful!');
+      res.redirect('Book.html');
     }else{
     res.status(401).send('Invalid credentials');
     }
